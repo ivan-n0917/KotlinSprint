@@ -1,13 +1,11 @@
 package org.example.Lesson2
 
-const val BASE_CRYSTAL = 7
-const val BASE_IRON = 11
-const val BUFF_PERCENT = 20
-
 fun main() {
 
-    fun calculateBonus(base: Int) = (base * BUFF_PERCENT / 100).toInt()
+    val baseCrystal = 7
+    val baseIron = 11
+    val buffPercent = 20
 
-    println("Бонусные кристаллические руды: ${calculateBonus(BASE_CRYSTAL)}")
-    println("Бонусные железные руды: ${calculateBonus(BASE_IRON)}")
+    println("Бонусные кристаллические руды: ${baseCrystal * buffPercent / 100}")
+    println("Бонусные железные руды: ${baseIron * buffPercent / 100}")
 }
