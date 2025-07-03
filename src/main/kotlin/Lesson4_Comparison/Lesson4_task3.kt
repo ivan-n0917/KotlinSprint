@@ -1,17 +1,20 @@
 package org.example.Lesson4_Comparison
 
+const val REQUIRED_HUMIDITY = 20
+const val WINTER_SEASON = "зима"
+
 fun main() {
 
-    val isSunny:Boolean = true
-    val isTentOpen:Boolean = true
-    val humidity:Int = 20
-    val currentSeason:String = "зима"
+    val isSunnyWeather = true
+    val isTentOpen = true
+    val airHumidity = 20
+    val currentSeason = "зима"
 
 
-    val favorableConditions:Boolean = isSunny &&
+    val favorableConditions = isSunnyWeather &&
             isTentOpen &&
-            humidity == 20 &&
-            currentSeason != "зима"
+            airHumidity >= REQUIRED_HUMIDITY &&
+            currentSeason != WINTER_SEASON
 
 
     println("Благоприятные ли условия сейчас для роста бобовых? $favorableConditions")
