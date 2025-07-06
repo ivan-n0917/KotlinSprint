@@ -9,7 +9,7 @@ fun main() {
     println("Докажите что вы не бот: Решите пример $number1 + $number2")
 
     print("введите ответ: ")
-    val answer = readlnOrNull()?.toIntOrNull()
+    val answer = readln().toInt()
 
     if (answer == correctAnswer) {
         println("Добро пожаловать!")
