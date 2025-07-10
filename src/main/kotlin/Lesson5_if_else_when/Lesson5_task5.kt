@@ -3,7 +3,7 @@ package org.example.Lesson5_if_else_when
 fun main() {
 
     val winningNumbers = List(3) {(0..42).random() }
-    val userNumbers = listOf(1, 2, 3)
+    val userNumbers = mutableListOf<Int>()
 
     println("Добро пожаловать в лотерею!")
     println("Угадайте три числа от 0 до 42 и выиграйте приз!")
@@ -26,10 +26,8 @@ fun main() {
         1 -> println("Вы угадали одно число и получаете утешительный приз!")
         else -> println("К сожалению, вы не угадали ни одного числа.")
     }
-
     println("Выигрышные числа были: $winningNumbers")
-
-    }
+}
 
 
 
