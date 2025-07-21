@@ -5,18 +5,22 @@ fun main() {
     println(" Таймер ")
     print("Введите количество секунд: ")
 
-    val totalSeconds = readln().toIntOrNull() ?: run {
-        return
-    }
+    val totalSeconds = readln().toIntOrNull()
 
-    println("Таймер запущен на $totalSeconds секунд...")
+    if (totalSeconds == null) {
+
+        println("Таймер запущен на $totalSeconds секунд...")
+    }
 
     var remainingSeconds = totalSeconds
 
-    while (remainingSeconds > 0) {
-        println("Осталось секунд: $remainingSeconds")
-        Thread.sleep(1000L)
-        remainingSeconds--
+    if (remainingSeconds != null) {
+        while (remainingSeconds > 0)
+        {
+            println("Осталось секунд: $remainingSeconds")
+            Thread.sleep(1000L).toString()
+            remainingSeconds--
+        }
     }
 
     println("Время вышло")
