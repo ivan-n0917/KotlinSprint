@@ -1,6 +1,6 @@
 package org.example.Lesson6_While_Do_while
 
-import kotlin.random.Random
+
 
 fun main() {
     println(" Система авторизации ")
@@ -9,22 +9,18 @@ fun main() {
     var attemptsLeft = 3
 
     while (attemptsLeft > 0) {
-        val a = Random.nextInt(1, 10)
-        val b = Random.nextInt(1, 10)
-        val correctAnswer = a + b
+        val number1 = (1..9).random()
+        val number2 = (1..9).random()
+        val correctAnswer = number1 + number2
 
-        print("Сколько будет $a + $b? (Осталось попыток: $attemptsLeft): ")
-        val userAnswer = readln().toIntOrNull()
-
-        when (userAnswer) {
-            null -> {
-                println("Пожалуйста, введите число!")
-                continue
-            }
+        print("Сколько будет $number1 + $number2? + (Осталось попыток: $attemptsLeft): ")
+        when (readln().toIntOrNull()) {
+            null -> println("Пожалуйста, введите число!")
             correctAnswer -> {
                 println("Добро пожаловать!")
                 return
             }
+
             else -> {
                 println("Неверно!")
                 attemptsLeft--
