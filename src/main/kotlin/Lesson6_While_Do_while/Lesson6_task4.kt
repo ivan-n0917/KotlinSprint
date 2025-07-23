@@ -1,12 +1,12 @@
 package org.example.Lesson6_While_Do_while
 
-import kotlin.random.Random
+
 
 fun main() {
     println(" Игра, в которой нужно угадать число")
     println("Угадайте число от 1 до 9. У вас 5 попыток!")
 
-    val secretNumber = Random.nextInt(1, 10)
+    val secretNumber = (1..9).random()
     var attemptsLeft = 5
 
     while (attemptsLeft > 0) {
