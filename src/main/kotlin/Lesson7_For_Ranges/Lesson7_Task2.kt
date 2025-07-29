@@ -1,9 +1,9 @@
 package org.example.Lesson7_For_Ranges
 
 fun main() {
-    val smsCode = (1000..9999).random()
+    var smsCode: Int
     do {
-        val smsCode = (1000..9999).random()
+        smsCode = (1000..9999).random()
         println("Ваш код авторизации: $smsCode")
 
         print("Введите код: ")
@@ -12,7 +12,8 @@ fun main() {
                 println("Добро пожаловать! Авторизация успешна.")
                 return
             }
+
             else -> println("Неверный код. Отправляем новый...")
         }
-    }while (true)
+    } while (true)
 }
