@@ -4,7 +4,12 @@ fun main() {
     print("Введите длину пароля (мин. 6): ")
     val length = readln().toIntOrNull()
 
-    val password = length?.let { generatePassword(it) }
+    if (length == null || length < 6) {
+        println("Длина пароля должна быть не менее 6 символов")
+        return
+    }
+
+    val password = generatePassword(length)
     println("Ваш пароль: $password")
 }
 
@@ -22,7 +27,8 @@ fun generatePassword(length: Int): String {
     repeat(length - 3) {
         chars.add(allChars.random())
     }
-        return chars.shuffled().joinToString("")
+        chars.shuffle()
+        return chars.joinToString("")
     }
 
 
