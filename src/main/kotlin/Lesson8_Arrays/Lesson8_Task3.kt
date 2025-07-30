@@ -5,11 +5,10 @@ fun main() {
     print("Введите название ингредиента: ")
     val search = readln()
 
-    val message = if (ingredients.any { it.equals(search, true) }) {
-        "Ингредиент [$search] найден"
-    } else {
-        "Ингредиент [$search] не найден"
-    }
-
-    println(message)
+    println(
+        when (search in ingredients) {
+            true -> "Ингредиент [$search] найден"
+            false -> "Ингредиент [$search] не найден"
+        }
+    )
 }
