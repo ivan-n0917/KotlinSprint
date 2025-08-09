@@ -1,4 +1,4 @@
-package org.example.Lists
+package org.example.Lists}
 
 fun main() {
 
@@ -7,10 +7,10 @@ fun main() {
     println("Введите количество порций омлета:")
     val portions = readln().toInt()
 
-    val eggs = ingredientsPerPortion[0] * portions
-    val milk = ingredientsPerPortion[1] * portions
-    val butter = ingredientsPerPortion[2] * portions
+    val calculatedIngredients = ingredientsPerPortion.map { it * portions }
 
     println("На $portions порций вам понадобится: " +
-            "Яиц – $eggs, молока – ${milk} мл, сливочного масла – ${butter} гр")
+            "Яиц – ${calculatedIngredients[0]}, " +
+            "молока – ${calculatedIngredients[1]} мл, " +
+            "сливочного масла – ${calculatedIngredients[2]} гр")
 }
