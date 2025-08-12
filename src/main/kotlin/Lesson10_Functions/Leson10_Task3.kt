@@ -1,7 +1,6 @@
 package org.example.Lesson10_Functions
 
 fun main() {
-
     println("Введите длину пароля:")
     val length = readln().toInt()
 
@@ -11,22 +10,16 @@ fun main() {
 
 fun generatePassword(length: Int): String {
 
-    val digits = "0123456789"
+    val digits = '0'..'9'
     val symbols = listOf(
-        '!', '"', '#', '$', '%', '&',
-        '\'', '(', ')', '*', '+', ',', '-', '.', '/', ' '
-    )
+        '!'..'/',
+        ':'..'@',
+        '['..'`',
+        '{'..'~'
+    ).flatMap { it.toList() }
 
-    val password = StringBuilder()
-
-    for (i in 0 until length) {
-
-        if (i % 2 == 0) {
-            password.append(digits.random())
-        } else {
-            password.append(symbols.random())
-        }
+    return (0 until length).joinToString("") { i ->
+        if (i % 2 == 0) digits.random().toString()
+        else symbols.random().toString()
     }
-
-    return password.toString()
 }
