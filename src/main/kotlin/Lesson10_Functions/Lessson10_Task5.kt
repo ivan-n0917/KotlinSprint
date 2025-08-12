@@ -1,19 +1,26 @@
 package org.example.Lesson10_Functions
 
+const val CORRECT_LOGIN = "admin"
+const val CORRECT_PASSWORD = "qwerty123"
+
 fun main() {
-
-    val CORRECT_LOGIN = "admin"
-    val CORRECT_PASSWORD = "qwerty123"
-    val userCart = listOf("Ноутбук", "Смартфон", "Наушники", "Книга")
-
-    val token = readln().let { login ->
-        readln().takeIf { it == CORRECT_PASSWORD && login == CORRECT_LOGIN }?.let { generateToken() }
-    }
+    val token = authorize()
 
     token?.let {
+        val cart = getCart(it)
         println("\nАвторизация успешна! Ваша корзина:")
-        userCart.forEachIndexed { i, item -> println("${i + 1}. $item") }
+        cart.forEachIndexed { i, item -> println("${i + 1}. $item") }
     } ?: println("\nОшибка авторизации!")
+}
+
+fun authorize(): String? {
+    return readln().let { login ->
+        readln().takeIf { it == CORRECT_PASSWORD && login == CORRECT_LOGIN }?.let { generateToken() }
+    }
+}
+
+fun getCart(token: String): List<String> {
+    return listOf("Ноутбук", "Смартфон", "Наушники", "Книга")
 }
 
 fun generateToken(): String {
