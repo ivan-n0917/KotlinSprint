@@ -1,4 +1,4 @@
-package org.example.Lists}
+package org.example.Lists
 
 fun main() {
 
