@@ -11,12 +11,7 @@ fun main() {
 fun generatePassword(length: Int): String {
 
     val digits = '0'..'9'
-    val symbols = listOf(
-        '!'..'/',
-        ':'..'@',
-        '['..'`',
-        '{'..'~'
-    ).flatMap { it.toList() }
+    val symbols = ' '..'/'
 
     return (0 until length).joinToString("") { i ->
         if (i % 2 == 0) digits.random().toString()
