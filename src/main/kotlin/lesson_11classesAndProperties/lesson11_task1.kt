@@ -1,6 +1,6 @@
 package org.example.lesson_11classesAndProperties
 
-class User(
+class Users(
     val id: Int,
     val login: String,
     val password: String,
@@ -8,8 +8,8 @@ class User(
 )
 
 fun main() {
-    val user1 = User(145, "Polina", "654klj", "user@mail.ru")
-    val user2 = User(263, "Natali", "368iuhi", "user2@mail.com")
+    val user1 = Users(145, "Polina", "654klj", "user@mail.ru")
+    val user2 = Users(263, "Natali", "368iuhi", "user2@mail.com")
 
     println("Пользователь 1")
     println("ID: ${user1.id}")
