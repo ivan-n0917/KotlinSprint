@@ -5,19 +5,19 @@ class QuizItem(
     private var answer: String,
 ) {
 
-    fun getAnswer(): String = answer
-
-    fun setAnswer(newAnswer: String) {
-        this.answer = newAnswer
-    }
+    var answerProperty: String
+        get() = answer
+        set(value) {
+            answer = value
+        }
 }
 
 fun main() {
     val quizItem = QuizItem("Что такое Kotlin?", "Язык программирования")
 
     println("Вопрос: ${quizItem.question}")
-    println("Ответ: ${quizItem.getAnswer()}")
+    println("Ответ: ${quizItem.answerProperty}")
 
-    quizItem.setAnswer("Модернизированный язык для Android")
-    println("Новый ответ: ${quizItem.getAnswer()}")
+    quizItem.answerProperty = "Модернизированный язык для Android"
+    println("Новый ответ: ${quizItem.answerProperty}")
 }
