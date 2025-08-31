@@ -6,33 +6,36 @@ class Ship(
     private var homePort: String,
 ) {
 
-    fun getName(): String = name
+    val nameProperty: String
+        get() = name
 
-    fun getAverageSpeed(): Int = averageSpeed
-    fun setAverageSpeed(newSpeed: Int) {
-        if (newSpeed > 0) {
-            averageSpeed = newSpeed
-        } else {
-            println("Ошибка: Скорость должна быть положительной.")
+    var averageSpeedProperty: Int
+        get() = averageSpeed
+        set(value) {
+            if (value > 0) {
+                averageSpeed = value
+            } else {
+                println("Ошибка: Скорость должна быть положительной.")
+            }
         }
-    }
 
-    fun getHomePort(): String = homePort
-    fun setHomePort(newPort: String) {
-        homePort = newPort
-    }
+    var homePortProperty: String
+        get() = homePort
+        set(value) {
+            homePort = value
+        }
 }
 
 fun main() {
     val ship = Ship("Морской Волк", 25, "Санкт-Петербург")
 
-    println("Имя корабля: ${ship.getName()}")
-    println("Скорость: ${ship.getAverageSpeed()} узлов")
-    println("Порт приписки: ${ship.getHomePort()}")
+    println("Имя корабля: ${ship.nameProperty}")
+    println("Скорость: ${ship.averageSpeedProperty} узлов")
+    println("Порт приписки: ${ship.homePortProperty}")
 
-    ship.setAverageSpeed(30)
-    println("Новая скорость: ${ship.getAverageSpeed()} узлов")
+    ship.averageSpeedProperty = 30
+    println("Новая скорость: ${ship.averageSpeedProperty} узлов")
 
-    ship.setHomePort("Гданьск")
-    println("Новый порт приписки: ${ship.getHomePort()}")
+    ship.homePortProperty = "Гданьск"
+    println("Новый порт приписки: ${ship.homePortProperty}")
 }
