@@ -1,14 +1,17 @@
 package lesson17_setters_and_getters
 
 class QuizItem(
-    val question: String,
-    private var answer: String,
+    question: String,
+    answer: String
 ) {
 
-    var answerProperty: String
-        get() = answer
+    var question: String = question
+        get() = field
+
+    var answer: String = answer
+        get() = field
         set(value) {
-            answer = value
+            field = value
         }
 }
 
@@ -16,8 +19,8 @@ fun main() {
     val quizItem = QuizItem("Что такое Kotlin?", "Язык программирования")
 
     println("Вопрос: ${quizItem.question}")
-    println("Ответ: ${quizItem.answerProperty}")
+    println("Ответ: ${quizItem.answer}")
 
-    quizItem.answerProperty = "Модернизированный язык для Android"
-    println("Новый ответ: ${quizItem.answerProperty}")
+    quizItem.answer = "Модернизированный язык для Android"
+    println("Новый ответ: ${quizItem.answer}")
 }
