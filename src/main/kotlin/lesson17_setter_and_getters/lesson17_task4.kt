@@ -7,7 +7,8 @@ class Order(val number: String, location: String) {
             moveCount++
         }
     private var moveCount = 0
-    val moves get() = moveCount
+    val moves: Int
+        get() = moveCount
 }
 
 fun main() {
