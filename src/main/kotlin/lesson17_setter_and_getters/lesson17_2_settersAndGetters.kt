@@ -6,10 +6,10 @@ class Ship(
     val port: String,
 ) {
 
-    var shipName: String
-        get() = name
+    var shipName: String = name
         set(value) {
             println("Предупреждение: Вы не можете изменять имя корабля '$name' на '$value'.")
+            field = value
         }
 }
 
