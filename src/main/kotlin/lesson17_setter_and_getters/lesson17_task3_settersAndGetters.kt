@@ -1,30 +1,37 @@
 package org.example.lesson17_setter_and_getters
 
 class Folder(
-    val name: String,
-    private var count: Int,
-    private val secret: Boolean = false,
+    name: String,
+    count: Int,
+    private var secret: Boolean = false,
 ) {
 
-    val shownName: String
-        get() = if (secret) "скрытая папка: количество файлов 0" else name
+    val name: String = name
+        get() = if (secret) "" else field
 
-    val shownCount: Int
-        get() = if (secret) 0 else count
+    private val count: Int = count
+        get() = if (secret) 0 else field
+
+    fun makeSecret() {
+        this.secret = true
+    }
+
+    fun makePublic() {
+        this.secret = false
+    }
+
+    override fun toString(): String {
+        return "Папка: $name файлов: $count, секретная: $secret"
+    }
 }
 
 fun main() {
-    print("Введите имя папки: ")
-    val name = readln()
 
-    val folder = Folder(name, 8)
+    val secretFolder = Folder("Секретные документы", 42, true)
 
-    print("\nВыберите действие:\n1 - Показать статус\n2 - Показать количество файлов\nВаш выбор: ")
-    val choice = readln().trim()
+    val normalFolder = Folder("Обычные файлы", 15, false)
 
-    when (choice) {
-        "1" -> println(folder.shownName)
-        "2" -> println("Файлов: ${folder.shownCount}")
-        else -> println("Неверный выбор.")
-    }
+    println(secretFolder)
+
+    println(normalFolder)
 }
