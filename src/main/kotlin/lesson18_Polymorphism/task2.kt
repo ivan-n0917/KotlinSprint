@@ -2,29 +2,34 @@ package org.example.lesson18_Polymorphism
 
 import kotlin.random.Random
 
-open class Dice(val sides: Int) {
+open class Dice {
+    open val sides: Int = 0
     open fun roll() {
+        println("Брошен кубик с $sides гранями")
     }
 }
 
-class D4 : Dice(4) {
+class D4 : Dice() {
+    override val sides: Int = 4
     override fun roll() {
         val result = Random.nextInt(1, sides + 1)
-        println("Брошена D4, результат: $result")
+        println("Брошен D4, результат: $result")
     }
 }
 
-class D6 : Dice(6) {
+class D6 : Dice() {
+    override val sides: Int = 6
     override fun roll() {
         val result = Random.nextInt(1, sides + 1)
-        println("Брошена D6, результат: $result")
+        println("Брошен D6, результат: $result")
     }
 }
 
-class D8 : Dice(8) {
+class D8 : Dice() {
+    override val sides: Int = 8
     override fun roll() {
         val result = Random.nextInt(1, sides + 1)
-        println("Брошена D8, результат: $result")
+        println("Брошен D8, результат: $result")
     }
 }
 
